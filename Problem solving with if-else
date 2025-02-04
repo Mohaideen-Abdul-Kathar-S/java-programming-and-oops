@@ -1,0 +1,32 @@
+
+
+package q10923;
+
+class CheckSum100{
+	public void checkSum(int n,int m){
+		if(n==100 || m==100 || (n+m)==100){
+			System.out.println("true");
+		}else{
+			System.out.println("false");
+		}
+	}
+}
+
+
+package q10923;
+public class CheckSumMain{
+	public static void main(String[] args){
+	if (args.length < 1) {
+			System.out.println("Usage: java CheckSumMain <number>");
+			System.exit(-1);
+		}
+		try {
+			int firstNo = Integer.parseInt(args[0]);
+			int secondNo = Integer.parseInt(args[1]);
+			CheckSum100 cSum = new CheckSum100();
+			cSum.checkSum(firstNo, secondNo);
+		} catch(NumberFormatException nfe) {
+			System.out.println("Usage: java CheckSumMain <number>\n\tage: an integer representing number");
+		}
+	}
+}
