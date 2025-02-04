@@ -1,0 +1,38 @@
+
+
+package q36748;
+import java.util.*;
+public class BitwiseOperators {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the value for x
+        System.out.print("x: ");
+        int x = scanner.nextInt();
+
+        // Prompt the user to enter the value for y
+        System.out.print("y: ");
+        int y = scanner.nextInt();
+        
+        // Bitwise AND (&)
+        System.out.println("Bitwise AND: " + (x & y));
+
+        // Bitwise OR (|)
+        System.out.println("Bitwise OR: " + (x | y));
+
+        // Bitwise XOR (^)
+        System.out.println("Bitwise XOR: " + (x^y));
+
+        // Bitwise NOT (~)
+        System.out.println("Bitwise NOT for x: " + ~x);
+
+        System.out.println("Bitwise NOT for y: " + ~y);
+
+        // Left Shift (<<)
+        System.out.println("Left Shift by 1 for x: " + (x<<1));
+
+        // Right Shift (>>)
+        System.out.println("Right Shift by 1 for x: " + (x>>1));
+        
+    }
+}
