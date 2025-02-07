@@ -1,0 +1,68 @@
+
+
+package q14744;
+import java.util.*;
+
+
+public class CTJ14744{
+
+public static boolean isValidRomanNumeral(String str) {
+        String romanRegex = "^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
+        return str.matches(romanRegex);
+}
+
+
+public static int Roms(char x){
+switch(x){
+	case 'I':
+return 1;
+
+	case 'V':
+return 5;
+
+	case 'X':
+return 10;
+
+	case 'L':
+return 50;
+
+	case 'C':
+return 100;
+
+	case 'D':
+return 500;
+
+	case 'M':
+return 1000;
+
+	default:
+
+return 0;
+}
+}
+public static void main(String[] args){
+Scanner scanf = new Scanner(System.in);
+String str = scanf.nextLine();
+ if (!isValidRomanNumeral(str)) {
+            System.out.println("INVALID");
+            return;
+ }
+
+int total=0;
+
+for(int i=0;i<str.length();i++){
+
+int f=Roms(str.charAt(i));
+int g=(i+1<str.length())? Roms(str.charAt(i+1)) : 0 ;
+if(f<g){
+total -=f;
+}else{
+total+=f;
+}
+}
+
+System.out.println(total);
+
+}
+}
+
