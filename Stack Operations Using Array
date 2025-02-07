@@ -1,0 +1,113 @@
+
+
+import java.util.Scanner;
+public class ClassFixedArrayStack {
+    int[] array;
+    int top,size;
+    public ClassFixedArrayStack(int capacity) {
+        this.size=capacity;
+        array=new int[size];
+        top=-1;
+    }
+
+    /*method to insert element into the stack*/
+    public void push(int item) {
+		if(isFull()){
+			System.out.println("Stack is full item cannot be added");
+		}else{
+		array[++top]=item;
+		System.out.println("Added element is: "+array[top]);
+		}
+    }
+
+    /*method to remove element from the stack*/
+    public int pop() {
+		if(isEmpty()){
+			System.out.println("Stack Underflow");
+		}else{
+			System.out.println("Element popped is: "+array[top]);
+			--top;
+		}
+		return 1;
+    }
+
+    /*method to display stack elements*/
+    public void display() {
+		if(isEmpty()){
+			System.out.println("No elements to display");
+			return;
+		}
+	for(int i=top;i>-1;i--){
+		System.out.println(array[i]);
+	}
+    }
+
+    /*method to return peek element*/
+    public void peek() {
+		if(isEmpty()){
+			System.out.println("Stack is empty");
+			return;
+		}
+		System.out.println("Peek of stack is: "+array[top]);
+    }
+
+    /*method to find if stack is empty or not*/
+    public boolean isEmpty() {
+		return top==-1;
+    }
+
+    /*method to find is full or not*/
+    public boolean isFull() {
+		return top==size-1;
+    }
+    
+     /*method to find stack size*/
+    public int stackSize(){
+		if(isEmpty()){
+			return 0;
+		}
+		return top+1;
+    }
+ public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Stack Implementation using fixed size array");
+        System.out.print("Enter the size of the stack: ");
+        int capacity=sc.nextInt();
+        ClassFixedArrayStack stackObject=new ClassFixedArrayStack(capacity);
+        System.out.println("Enter 1 to push\nEnter 2 to pop\nEnter 3 to display stack\nEnter 4 to display the peek\nEnter 5 to print size of stack\nEnter 6 to exit");
+        while(true){
+        	System.out.print("Enter your option: ");	
+        	int choice=sc.nextInt();
+        		switch(choice){
+        			default:
+        				System.out.println("Enter the right option");
+        				break;
+        			case 1:
+        				System.out.print("Scan element to push: ");
+        				int item=sc.nextInt();
+        				stackObject.push(item);
+        			//	stackObject.display();
+        				break;
+        			case 2:
+        				stackObject.pop();
+        				break;
+        			case 3:
+        				System.out.print("Elements in stack: \n");
+        				stackObject.display();
+        				break;
+        			case 4:
+        				stackObject.peek();
+        				break;
+        			case 5:
+        				System.out.println("Size of Stack is: "+stackObject.stackSize());
+        				break;
+        			case 6:
+        				return;
+        		
+        		
+        	}
+        	
+        }
+        
+    }
+}
