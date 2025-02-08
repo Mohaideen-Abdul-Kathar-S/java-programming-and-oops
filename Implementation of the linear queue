@@ -1,0 +1,100 @@
+
+
+package q36649;
+import java.util.*;
+class Linearqueue {
+  int maxCapacity;
+  int items[];
+  int front;
+  int rear;
+
+  public Linearqueue(int size) {
+  	front = -1;
+  	rear = -1;
+  	this.maxCapacity = size;
+  	items = new int[maxCapacity];
+  }
+
+  public boolean isFull() {
+    return rear==maxCapacity-1;
+  }
+
+  public boolean isEmpty() {
+    return rear<front;
+  }
+
+  public void enqueue(int item) {
+    if(isFull()){
+		System.out.println("Queue status is Overflow");
+	}else{
+		if(front==-1){front++;}
+		
+		items[++rear]=item;
+		System.out.println("Item Inserted: "+items[rear]);
+	}
+  	
+  }
+
+  public void dequeue() {
+  	if(isEmpty()){
+		System.out.print("Queue Underflow");
+	}else{
+		System.out.println("Element deleted: "+items[front++]);
+	}
+  }
+
+/* Method to display elements of Queue */
+  public void display() {
+	  if(isEmpty()){
+		  System.out.print("Queue is empty");
+	  }else{
+	  	for(int i=front;i<=rear;i++){
+			System.out.print(items[i]+"  ");
+		}
+	  }
+	  System.out.println();
+	  
+  }
+  
+  
+/* Driver main method */
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Queue Implmentation using fixed size array");
+    System.out.print("Enter the size of queue: ");
+    int capacity = sc.nextInt();
+    int item;
+    Linearqueue queue = new Linearqueue(capacity);
+    System.out.println("Enter 1 to Insert\nEnter 2 to Delete\nEnter 3 to Display\nEnter 4 to Exit");
+    while(true) {
+        System.out.print("Enter your option: ");	
+        int choice = sc.nextInt();
+        switch(choice){
+        	default:
+        		System.out.println("Enter the right option");
+        		break;
+        	case 1:
+        		System.out.print("Enter element to insert: ");
+        		item = sc.nextInt();
+        		queue.enqueue(item);
+        		break;
+        	case 2:
+        		queue.dequeue();
+        		break;
+        	case 3:
+        		System.out.println("Elements in queue are:");
+        		queue.display();
+        				//System.out.println("\n");
+        		break;
+        	case 4:
+        		System.exit(1);
+        	
+        }
+    	
+    }
+  	
+  }
+	
+} 
+
+
