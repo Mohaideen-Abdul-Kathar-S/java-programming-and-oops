@@ -1,0 +1,61 @@
+
+
+
+import java.util.*;
+
+class Triangle_Area_Class{
+	// write your code here...
+	public void get_Area(){
+		System.out.println();
+	}
+	
+}
+
+class RightAngledTriangle_Area_Class extends Triangle_Area_Class{
+	double a,b;
+	public RightAngledTriangle_Area_Class(double x,double y){
+		this.a=x;
+		this.b=y;
+	}
+	public void get_Area(){
+		System.out.println("area: "+String.format("%.2f",(a*b)/2));
+	}
+}
+
+class EqulilateralTriangle_Area_Class extends Triangle_Area_Class{
+	// write your code here...
+	double a;
+	public EqulilateralTriangle_Area_Class(double x){
+		this.a=x;
+	}
+	public void get_Area(){
+		//System.out.print("area: ");
+		System.out.println("area: "+String.format("%.2f",((Math.sqrt(3))/4)*a*a));
+	}
+}
+
+public class AreaOfTriangle
+{	public static void main (String[]args)
+	{	Scanner Sc = new Scanner (System.in);
+		System.out.print("Press 1 for right-angled triangle\nPress 2 for equilateral triangle\nChoice: ");
+		int choice = Sc.nextInt ();
+		double x, y;
+		Triangle_Area_Class TA = null;
+		switch (choice)
+		{	case 1:
+				System.out.print ("base: ");
+				x = Sc.nextDouble ();
+				System.out.print ("altitude: ");
+				y = Sc.nextDouble ();
+				TA = new RightAngledTriangle_Area_Class(x,y);
+				TA.get_Area ();
+				break;
+			case 2:
+				System.out.print ("side: ");
+				x = Sc.nextDouble ();
+				TA = new EqulilateralTriangle_Area_Class(x);
+				TA.get_Area ();
+				break;
+		}
+	}
+}
