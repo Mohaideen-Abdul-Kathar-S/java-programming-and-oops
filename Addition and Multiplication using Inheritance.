@@ -1,0 +1,47 @@
+
+
+package q23013;
+
+import java.util.Scanner;
+
+class Calculation {
+	 int x,y;
+	/*public Calculation(int a,int b){
+		this.x=a;
+		this.y=b;
+	}*/
+	 int addition(){
+		return x+y;
+	}
+}
+
+class My_Calculation extends Calculation {
+	 My_Calculation(int a,int b){
+		x=a;
+		y=b;
+	}
+	int multiplication(){
+		return x*y;
+	}
+}
+
+
+public class MainCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        My_Calculation myCalculation = new My_Calculation(num1, num2);
+
+        int sum = myCalculation.addition();
+        int product = myCalculation.multiplication();
+
+        System.out.println(sum);
+        System.out.println(product);
+
+        scanner.close();
+    }
+}
+
