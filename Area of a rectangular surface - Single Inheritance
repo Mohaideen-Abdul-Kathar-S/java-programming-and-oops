@@ -1,0 +1,30 @@
+
+
+package q23125;
+import java.util.Scanner;
+
+class Parameters{
+	Scanner sc = new Scanner(System.in);
+	public float length,breadth;
+	public void Parametersin(){
+		System.out.print("Enter length: ");
+		length = sc.nextFloat();
+		System.out.print("Enter breadth: ");
+		breadth = sc.nextFloat();
+	}
+}
+class Area extends Parameters{
+	//public float areaof=length*breadth;
+	public void displayArea(){
+		System.out.printf("%.2f\n",length*breadth);
+	}
+}
+
+public class MainFunction {
+    public static void main(String[] args) {
+		Area area = new Area();
+        area.Parametersin();
+        area.displayArea();
+    }
+}
+
