@@ -1,0 +1,60 @@
+
+
+package q22052;
+
+import java.util.*;
+
+class Vehicle{
+	public void start(){
+		
+	}
+}
+
+class Car extends Vehicle{
+	public void start(){
+		System.out.println("Car: ignition key");
+	}
+}
+
+class Motorcycle extends Vehicle{
+	public void start(){
+		System.out.println("Motorcycle: kickstarting");
+	}
+}
+
+class Truck extends Vehicle{
+	public void start(){
+		System.out.println("Truck: ignition button");
+	}
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Vehicle[] vehicles = new Vehicle[3];
+        System.out.println("1. Car, 2. Motorcycle, 3. Truck: ");
+        for (int i = 0; i < 3; i++) {
+            int vehicleType = scanner.nextInt();
+
+            switch (vehicleType) {
+                case 1:
+                    vehicles[i] = new Car();
+                    break;
+                case 2:
+                    vehicles[i] = new Motorcycle();
+                    break;
+                case 3:
+                    vehicles[i] = new Truck();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter 1, 2, or 3");
+                    i--;
+                    break;
+            }
+        }
+        for (Vehicle vehicle : vehicles) {
+            vehicle.start();
+        }
+    }
+}
+
