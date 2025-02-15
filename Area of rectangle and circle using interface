@@ -1,0 +1,46 @@
+
+import java.util.*;
+
+
+interface Shape {
+	 void getData();
+	 void display();
+}
+
+class Circle implements Shape{
+	Scanner sc = new Scanner(System.in);
+	double x;
+	public void getData(){
+		x = sc.nextDouble();
+	}
+	public void display(){
+		 System.out.println("Area of Circle is "+ String.format("%.1f",x*x*3.14));
+	}
+}
+
+class Rectangle implements Shape{
+	Scanner sc = new Scanner(System.in);
+	double x,y;
+	public void getData(){
+		x = sc.nextDouble();
+		y = sc.nextDouble();
+	}
+	public void display(){
+		 System.out.println("Area of Rectangle is "+  String.format("%.1f",x*y));
+//System.out.println("Area of Rectangle is "+ Math.round( x*y));
+
+	}
+}
+
+class Area {
+    public static void main(String arg[]) {
+        Circle c = new Circle();
+        c.getData();
+        c.display();
+
+        Rectangle r = new Rectangle();
+        r.getData();
+        r.display();
+    }
+}
+
