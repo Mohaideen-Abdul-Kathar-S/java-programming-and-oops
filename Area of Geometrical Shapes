@@ -1,0 +1,62 @@
+
+package q23417;
+import java.util.Scanner;
+
+interface Shape {
+    double calculateArea();
+    double calculatePerimeter();
+}
+
+class Circle implements Shape{
+	double area;
+	Circle(double x){
+		area=x;
+	}
+	public double calculateArea(){
+		return (area*area)*Math.PI;
+	}
+	public double calculatePerimeter(){
+		return 2*Math.PI*area;
+	}
+}
+
+class Rectangle implements Shape{
+	double width,len;
+	Rectangle(double width,double y){
+		this.width=width;
+		len=y;
+	}
+	public double calculateArea(){
+		return width*len;
+	}
+
+	public double calculatePerimeter(){
+		return (width+len)*2;
+	}
+}
+
+
+public class DrawingMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // User input for Circle
+        System.out.print("Radius of the circle: ");
+        double circleRadius = scanner.nextDouble();
+        Circle circle = new Circle(circleRadius);
+
+        // User input for Rectangle
+        System.out.print("length of the rectangle: ");
+        double rectangleLength = scanner.nextDouble();
+        System.out.print("width of the rectangle: ");
+        double rectangleWidth = scanner.nextDouble();
+        Rectangle rectangle = new Rectangle(rectangleLength, rectangleWidth);
+
+        scanner.close();
+
+        // Demonstrate functionality
+        System.out.printf("Area of circle: %.2f, Perimeter: %.2f%n", circle.calculateArea(), circle.calculatePerimeter());
+        System.out.printf("Area of rectangle: %.2f, Perimeter: %.2f%n", rectangle.calculateArea(), rectangle.calculatePerimeter());
+    }
+}
+
