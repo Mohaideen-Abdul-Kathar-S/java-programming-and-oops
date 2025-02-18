@@ -1,0 +1,52 @@
+
+package q23470;
+import java.util.Scanner;
+
+interface Playable {
+	void play();
+}
+
+class MP3Player implements Playable{
+	public void play(){
+		System.out.println("Playing MP3 audio");
+	}
+}
+class WAVPlayer implements Playable{
+	public void play(){
+		System.out.println("Playing WAV audio");
+	}
+}
+class MusicPlayer{
+	public void playAudio(Playable audio){
+		audio.play();
+	}
+}
+
+public class PlayerMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        MP3Player mp3Player = new MP3Player();
+        WAVPlayer wavPlayer = new WAVPlayer();
+        MusicPlayer musicPlayer = new MusicPlayer();
+
+        System.out.println("Choose an audio format:");
+        System.out.println("1. MP3");
+        System.out.println("2. WAV");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                musicPlayer.playAudio(mp3Player);
+                break;
+            case 2:
+                musicPlayer.playAudio(wavPlayer);
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+
+        scanner.close();
+    }
+}
+
