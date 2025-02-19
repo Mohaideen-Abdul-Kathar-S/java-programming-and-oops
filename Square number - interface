@@ -1,0 +1,45 @@
+
+
+package q28284;
+import java.util.Scanner;
+
+interface MathOperation{
+	int calculate(int x);
+}
+
+class SquareOperation implements MathOperation{
+	public int calculate(int x){
+		return x*x;
+	}
+}
+
+class SumOperation implements MathOperation{
+	public int calculate(int x){
+		return (x*(x+1))/2;
+	}
+}
+public class MathComputationApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Example usage
+        MathOperation squareOperation = new SquareOperation();
+        MathOperation sumOperation = new SumOperation();
+
+        // Input number
+        System.out.print("Enter a number: ");
+        int inputNumber = scanner.nextInt();
+
+        // Display result of Square Operation
+        int resultSquare = squareOperation.calculate(inputNumber);
+        System.out.println("Square of " + inputNumber + " is: " + resultSquare);
+
+        // Display result of Sum Operation
+        int resultSum = sumOperation.calculate(inputNumber);
+        System.out.println("Sum of numbers up to " + inputNumber + " is: " + resultSum);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
