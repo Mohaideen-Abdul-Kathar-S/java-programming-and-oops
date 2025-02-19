@@ -1,0 +1,61 @@
+
+
+package q28272;
+import java.util.Scanner;
+
+interface TextManipulator{
+	String manipulateText(String x);
+}
+class ReverseText implements TextManipulator{
+	public String manipulateText(String str){
+		int i=0,j=str.length()-1;
+		char[] ch = str.toCharArray();
+		while(i<j){
+			char temp=ch[i];
+			ch[i]=ch[j];
+			ch[j]=temp;
+			i++;
+			j--;
+		}
+		String st = new String(ch);
+		return st;
+	}
+}
+
+class ReplaceVowels implements TextManipulator{
+	public String manipulateText(String str){
+		char[] ch = str.toCharArray();
+		for(int i=0;i<str.length();i++){
+			if(ch[i]=='a' || ch[i]=='e' || ch[i]=='i' || ch[i]=='o' || ch[i]=='u' || ch[i]=='E'){
+				ch[i]='*';
+			}
+		}
+		String st = new String(ch);
+		return st;
+	}
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Example usage
+        TextManipulator reverseText = new ReverseText();
+        TextManipulator replaceVowels = new ReplaceVowels();
+
+        System.out.print("Enter a text: ");
+        String inputText = scanner.nextLine();
+
+        // Display reversed text
+        String reversedResult = reverseText.manipulateText(inputText);
+        System.out.println("Reversed Text: " + reversedResult);
+
+        // Display text with vowels replaced
+        String replaceVowelsResult = replaceVowels.manipulateText(inputText);
+        System.out.println("Text with Vowels Replaced: " + replaceVowelsResult);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
