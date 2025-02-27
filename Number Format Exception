@@ -1,0 +1,27 @@
+
+
+package q17994;
+import java.util.*;
+
+public class ParseIntExample {
+    public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter an integer as a string: ");
+           String str = sc.nextLine();
+            // Attempt to parse the string to an integer
+		int number;
+           try{
+			   number = Integer.parseInt(str);
+		   
+            // Display the parsed integer
+            System.out.println("Parsed integer: " + number);
+		   }
+		catch(NumberFormatException E){
+   
+            // Handle the NumberFormatException
+            System.out.println("Error: The input is not a valid integer.");
+		   }
+       
+    }
+}
+// Strings required to print desired output are given in above partial code
