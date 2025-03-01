@@ -1,0 +1,59 @@
+
+
+class empexp extends Exception {
+    public empexp(String exp) {
+        super(exp);
+    }
+}
+
+class Employee {
+    String firstName;
+    double salary;
+
+    // Parameterized constructor
+    public Employee(String firstName, double salary) {
+        this.firstName = firstName;  // Corrected variable name
+        this.salary = salary;
+    }
+
+    // Display method with exception handling
+    public void display() throws empexp {
+        System.out.println("Name: " + firstName);
+        System.out.println("Salary: " + salary);
+
+        try {
+            if (salary < 2000) {
+                throw new empexp("Exception: Salary is below 2000");  // Corrected message typo
+            }
+        } catch (empexp e) {
+            System.out.println(e.getMessage());  // Print exception message
+        }
+    }
+}
+
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input for employee's name and salary
+        System.out.print("first name: ");
+        String str = sc.nextLine();
+
+        System.out.print("salary: ");
+        double s = sc.nextDouble();
+
+        // Create Employee object and display information
+        Employee ee = new Employee(str, s);
+		try{
+        ee.display();
+
+		}catch(empexp m){
+			
+		}
+
+        // Close the scanner
+        sc.close();
+    }
+}
+
+
