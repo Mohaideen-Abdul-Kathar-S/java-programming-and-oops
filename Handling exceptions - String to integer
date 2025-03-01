@@ -1,0 +1,19 @@
+
+
+package q18190;
+import java.util.Scanner;
+public class StringToInt {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            String input = scanner.nextLine();
+			int n = Integer.parseInt(input);
+			System.out.println(n*2);
+            
+        } catch (NumberFormatException E) { // Catch exception for invalid integer input
+            System.out.println("Error: The input is not a valid integer");
+        }
+
+    }
+}
