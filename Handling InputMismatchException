@@ -1,0 +1,36 @@
+
+package q22100;
+
+
+import java.util.*;
+
+
+
+public class Main {
+    public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+        try {
+         
+
+
+			int N = sc.nextInt();
+
+
+            System.out.println(N);
+            
+        } catch (InputMismatchException E) {
+
+			System.out.println("Error: Please enter a valid integer");
+            
+            
+        }
+		
+	}
+		    
+		    
+}
+
+
+
