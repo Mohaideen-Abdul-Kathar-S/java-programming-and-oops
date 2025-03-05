@@ -1,0 +1,31 @@
+
+
+
+import java.util.*;
+
+public class ExceptionHandlingExample {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+
+        try {
+        	System.out.print("Enter the value of 'a': ");
+			int a = sc.nextInt();
+			System.out.print("Enter the value of 'b': ");
+			int b = sc.nextInt();
+        	System.out.println("Result of a/b: "+divide(a,b));
+        	
+        } catch (ArithmeticException E) {
+        	System.out.println("Arithmetic Exception: / by zero");
+        } catch (InputMismatchException E) {
+        	System.out.println("Input Mismatch Exception: Please enter valid integer values.");
+        }
+
+    }
+
+    public static int divide( int a,int b ) {
+    	return a/b;
+    	
+    }
+}
+
