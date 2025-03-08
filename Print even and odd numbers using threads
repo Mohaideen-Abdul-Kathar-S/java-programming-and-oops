@@ -1,0 +1,65 @@
+
+
+package q17210;
+import java.util.*;
+
+
+public class Main{
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+
+System.out.print("Enter the maximum even number:");
+int even = sc.nextInt();
+System.out.print("Enter the maximum odd number:");
+int odd = sc.nextInt();
+Evenclass ev = new Evenclass(even);
+Oddclass od = new Oddclass(odd);
+od.start();
+ev.start();
+//od.start();
+sc.close();
+
+}
+}
+
+class Evenclass extends Thread{
+int n;
+public Evenclass(int n){
+this.n=n;
+}
+
+public void run(){
+for(int i=2;i<=n;i+=2){
+
+System.out.println("Even:"+i);
+
+try{
+Thread.sleep(100);
+}catch(Exception e){
+System.out.println(e);
+}
+
+}
+}
+}
+
+class Oddclass extends Thread{
+int n;
+public Oddclass(int n){
+this.n=n;
+}
+public void run(){
+for(int i=1;i<=n;i+=2){
+
+System.out.println("Odd:"+i);
+
+try{
+Thread.sleep(100);
+}catch(Exception e){
+System.out.println(e);
+}
+
+}
+}
+}
+
