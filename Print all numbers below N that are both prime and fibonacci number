@@ -1,0 +1,96 @@
+
+
+package q32312;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+class PrimeThread extends Thread {
+private int limit;
+private Set<Integer> primes = new HashSet<>();
+	public PrimeThread(int limit){
+		this.limit=limit;
+	}
+	public Set<Integer> getPrimes(){
+		return primes;
+	}
+
+	public void run(){
+		for(int num = 2; num<limit;num++){
+			if(isPrime(num)){
+				primes.add(num);
+			}
+		}
+	}
+	private boolean isPrime(int num){
+		if(num<=1) return false;
+		for(int i=2;i<=Math.sqrt(num);i++){
+			if(num%i==0) return false;
+		}
+		return true;
+	}
+
+}
+
+class FibonacciThread extends Thread {
+    int limit;
+	private Set<Integer> fibonaccis = new HashSet<>();
+public FibonacciThread(int limit){
+this.limit=limit;
+}
+public Set<Integer> getFibonaccis(){
+	return fibonaccis;
+}
+public void run(){
+int f=0,s=1;
+while(f<=limit){
+fibonaccis.add(f);
+int n=f;
+f=s;
+s=n+s;
+}
+}
+  
+}
+
+public class PrimeFibonacci {
+    
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter the value of N: ");
+int N = sc.nextInt();
+PrimeThread t1 = new PrimeThread(N);
+FibonacciThread t2 = new FibonacciThread(N);
+t1.start();
+t2.start();
+try{
+t1.join();
+t2.join();
+}catch(Exception E){
+System.out.print(E);
+}
+
+
+Set<Integer> primes = t1.getPrimes();
+Set<Integer> fibonaccis = t2.getFibonaccis();
+	List<Integer> result = new ArrayList<>();
+	System.out.println("Numbers that are both prime and Fibonacci:");
+
+for(Integer num : primes){
+if(fibonaccis.contains(num)){
+System.out.print(num+ " ");
+}
+}
+
+/*for(Integer val : prime){
+if(fib.contains(val)){
+System.out.print(val + " ");
+}
+}*/
+
+}
+}
+
