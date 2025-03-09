@@ -1,0 +1,58 @@
+
+
+
+import java.util.Scanner;
+
+class Chef extends Thread {
+String name;
+int n;
+
+	public Chef(String name,int n){
+this.name=name;
+this.n=n;
+}
+public void run(){
+
+	for(int i=1;i<=n;i++){
+System.out.println(name +" finished preparing order "+i);
+}
+}
+
+}
+
+class Waiter extends Thread {
+
+	String name;
+int n;
+
+	public Waiter(String name,int n){
+this.name=name;
+this.n=n;
+}
+public void run(){
+
+	for(int i=1;i<=n;i++){
+System.out.println(name +" delivered order "+i);
+}
+}
+}
+
+public class RestaurantMultithreading {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Number of chefs: ");
+		int numChefs = scanner.nextInt();
+		System.out.print("Number of waiters: ");
+		int numWaiters = scanner.nextInt();
+		System.out.print("Number of orders per chef/waiter: ");
+		int numOrders = scanner.nextInt();
+		for (int i = 1; i <= numChefs; i++) {
+			Chef chef = new Chef("Chef " + i, numOrders);
+			chef.start();
+		}
+		for (int i = 1; i <= numWaiters; i++) {
+			Waiter waiter = new Waiter("Waiter " + i, numOrders);
+			waiter.start();
+		}
+	}
+}
