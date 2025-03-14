@@ -1,0 +1,44 @@
+
+
+import java.util.*;
+class FactorialCalculator extends Thread {
+    
+    int n;
+public FactorialCalculator(int n){
+this.n=n;
+}
+public void run(){
+System.out.println("Thread "+Thread.currentThread().getId()+" - Factorial of "+n+" is: "+fact(n));
+}
+synchronized int fact(int n){
+
+int m=1;
+
+for(int i=1;i<=n;i++){
+m*=i;
+}
+return m;
+}
+
+
+
+
+
+}
+
+public class FactorialMultithreading {
+    public static void main(String[] args) {
+    	Scanner s = new Scanner(System.in);
+    	int n = s.nextInt();
+        int[] numbersToCalculateFactorial = new int[n];
+        for(int i = 0 ; i< n ;i++) {
+        	numbersToCalculateFactorial[i] = s.nextInt();
+        }
+
+        for (int number : numbersToCalculateFactorial) {
+            FactorialCalculator calculatorThread = new FactorialCalculator(number);
+            calculatorThread.start();
+        }
+    }
+}
+
