@@ -1,0 +1,54 @@
+
+
+import java.util.Scanner;
+
+class SumCalculator extends Thread {
+    
+    int n,val=0;
+public SumCalculator(int n){
+this.n=n;
+}
+public void run(){
+for(int i=1;i<=n;i++){
+val+=i;
+}
+synchronized (System.out){
+
+System.out.println("Thread "+Thread.currentThread().getId() +" - Sum of first "+n+" natural numbers is: "+val);
+}
+/*
+
+public void run(){
+
+System.out.println("Thread "+Thread.currentThread().getId() +"- Sum of first "+n+"natural numbers is: "+sum(n));
+}
+synchronized int sum(int n){
+for(int i=1;i<=n;i++){
+val+=i;
+}
+return val;
+
+}
+
+*/
+
+}
+}
+
+public class SumMultithreading {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int[] numbersToCalculateSum = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            numbersToCalculateSum[i] = s.nextInt();
+        }
+
+        for (int number : numbersToCalculateSum) {
+            SumCalculator calculatorThread = new SumCalculator(number);
+            calculatorThread.start();
+        }
+    }
+}
+
