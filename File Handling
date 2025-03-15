@@ -1,0 +1,29 @@
+
+
+package q18196;
+
+import java.util.*;
+import java.io.*;
+
+class LineCount{
+public static void main(String[] args){
+System.out.print("Enter file name: ");
+Scanner sc = new Scanner(System.in);
+String fname = sc.nextLine();
+try{
+File bfile = new File(fname);
+Scanner fsc = new Scanner(bfile);
+int i=1;
+while(fsc.hasNextLine()){
+String data = fsc.nextLine();
+System.out.println(i+". "+data);
+i++;
+}
+
+}catch(Exception E){
+System.out.println("File not found");
+
+}
+}
+}
+
