@@ -1,0 +1,50 @@
+package q18210;
+import java.util.*;
+import java.io.*;
+
+class Palindrome{
+ArrayList<String> arr = new ArrayList<>();
+void polindrome(String str,Palindrome ppp){
+
+
+int len = str.length()-1;
+int s=0;
+while(s<len){
+if(str.charAt(s)!=str.charAt(len)){
+return;
+}
+s++;
+len--;
+}
+ppp.arr.add(str);
+}
+
+
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+Palindrome pp = new Palindrome();
+
+System.out.print("file: ");
+String name = sc.nextLine();
+try{
+File f = new File(name);
+Scanner reads = new Scanner(f);
+while(reads.hasNextLine()){
+String str = reads.nextLine();
+pp.polindrome(str,pp);
+}
+System.out.println(pp.arr.size());
+for(int i=0;i<pp.arr.size();i++){
+System.out.println(pp.arr.get(i));
+}
+}catch(Exception E){
+System.out.println("File not found");
+}
+
+
+
+}
+
+}
+
+
