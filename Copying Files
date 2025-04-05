@@ -1,0 +1,38 @@
+package q2760;
+
+import java.io.*;
+import java.util.*;
+public class FileCopy {
+public static void copyData(File s,File d){
+System.out.println("Successfully copied contents are:");
+
+try(Scanner reads = new Scanner(s);
+FileWriter wr = new FileWriter(d)){
+
+
+while(reads.hasNextLine()){
+String data = reads.nextLine();
+wr.write(data+"\n");
+}
+}catch(Exception E){
+
+}
+}
+
+	public static void main(String[] args) throws Exception
+	{	Scanner sc = new Scanner(System.in);
+		System.out.print("Name of source file: ");
+		String file1 = sc.nextLine();
+		File s = new File(file1);
+		System.out.print("Name of destination file: ");
+		String file2 = sc.nextLine();
+		File d = new File(file2);
+		sc.close();
+		copyData(s, d);
+		Scanner outFile = new Scanner(new File(file2));
+		while (outFile.hasNextLine()) {
+		   System.out.println(outFile.nextLine());
+		}
+		sc.close();
+	}
+}
