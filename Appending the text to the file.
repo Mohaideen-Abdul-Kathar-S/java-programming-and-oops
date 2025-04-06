@@ -1,0 +1,26 @@
+import java.util.*;
+import java.io.*;
+public class NoteTakingApp {
+
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+String line = sc.nextLine();
+String filen = sc.nextLine();
+try{
+
+File f = new File(filen);
+FileWriter wr = new FileWriter(f,true);
+wr.write(line);
+
+wr.flush();
+Scanner fr = new Scanner(f);
+while(fr.hasNextLine()){
+System.out.print(fr.nextLine());
+}
+}catch(Exception E){
+
+}
+System.out.printf("\n");
+}
+
+}
