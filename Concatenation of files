@@ -1,0 +1,33 @@
+import java.util.*;
+import java.io.*;
+
+class ConcatFiles{
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+System.out.print("file1: ");
+String f1 = sc.nextLine();
+System.out.print("file2: ");
+String f2 = sc.nextLine();
+
+try{
+	File f = new File(f1);
+	Scanner fr = new Scanner(f);
+	while(fr.hasNextLine()){
+		System.out.println(fr.nextLine());
+	}
+	File ff = new File(f2);
+	Scanner ffr = new Scanner(ff);
+	while(ffr.hasNextLine()){
+		System.out.println(ffr.nextLine());
+	}
+}catch(Exception X){
+	
+}
+
+
+
+
+}
+}
+
+
