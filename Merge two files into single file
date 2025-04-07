@@ -1,0 +1,40 @@
+package q29044;
+
+import java.util.*;
+import java.io.*;
+
+
+
+public class MergeTextFiles {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		String f1 = sc.nextLine();
+		String f2 = sc.nextLine();
+		String f3 = sc.nextLine();
+		try{
+			File fo = new File(f3);
+			FileWriter wr = new FileWriter(fo);
+			File f = new File(f1);
+			Scanner fr = new Scanner(f);
+			while(fr.hasNextLine()){
+				wr.write(fr.nextLine() + System.lineSeparator());
+				//System.out.println(fr.nextLine());
+				wr.flush();
+			}
+			File ff = new File(f2);
+			Scanner ffr = new Scanner(ff);
+			while(ffr.hasNextLine()){
+				wr.write(ffr.nextLine() + "\n");
+				//System.out.println(ffr.nextLine());
+				wr.flush();
+			}
+			Scanner fffr = new Scanner(fo);
+			while(fffr.hasNextLine()){
+				System.out.println(fffr.nextLine());
+			}
+		}catch(Exception e){
+			
+		}
+	}
+}
+
