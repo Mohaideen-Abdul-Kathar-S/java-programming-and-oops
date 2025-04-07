@@ -1,0 +1,39 @@
+package q30316;
+
+import java.util.*;
+
+class TemperatureConverter<T extends Number> {
+    private T[] temperatures;
+
+    // Constructor that accepts an array of temperatures of type T
+    public TemperatureConverter(T[] temperatures) {
+        this.temperatures = temperatures;
+    }
+
+    // Method to convert Celsius to Fahrenheit and print the results
+    public void convertTemperatures() {
+        for (T temp : temperatures) {
+            double celsius = temp.doubleValue();
+            double fahrenheit = (celsius * 9 / 5) + 32;
+            System.out.println(fahrenheit);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read number of temperatures
+        int n = scanner.nextInt();
+
+        // Read the temperatures into an array
+        Double[] temperatures = new Double[n];
+        for (int i = 0; i < n; i++) {
+            temperatures[i] = scanner.nextDouble();
+		}
+        TemperatureConverter<Double> converter = new TemperatureConverter<>(temperatures);
+        converter.convertTemperatures();
+
+        scanner.close();
+    }
+}
+
