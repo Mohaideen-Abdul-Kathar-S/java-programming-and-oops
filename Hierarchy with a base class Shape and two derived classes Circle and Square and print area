@@ -1,0 +1,77 @@
+
+package q18036;
+import java.util.Scanner;
+class Shape {
+   
+   // write your code here
+   public void calculateArea() {
+        // Default implementation (could be abstract if needed)
+        System.out.println("Area of the shape is not defined.");
+   }
+}
+
+class Circle extends Shape {
+   
+   
+   // write your code here
+   private double radius;
+
+    // Constructor to initialize radius
+    public Circle(double radius) {
+        this.radius = radius
+    }
+
+    // Override the calculateArea method to calculate the area of a circle
+    @Override
+    public void calculateArea() {
+        double area = Math.PI * radius * radius;
+        System.out.println("Area of the circle is: " + area);
+	}
+   
+}
+
+class Square extends Shape {
+    
+    
+    //write your code here
+    private double side;
+
+    // Constructor to initialize side length
+    public Square(double side) {
+        this.side = side;
+    }
+
+    // Override the calculateArea method to calculate the area of a square
+    @Override
+    public void calculateArea() {
+        double area = side * side;
+        System.out.println("Area of the square is: " + area);
+	}
+    
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the radius for the circle and the side for the square
+        double radius = scanner.nextDouble();
+        double side = scanner.nextDouble();
+
+        // Create a Circle object and a Square object
+        Shape circle = new Circle(radius);
+        Shape square = new Square(side);
+
+        // Print the header
+        System.out.println("Area of the shapes:");
+
+        // Calculate and print the area of the circle
+        circle.calculateArea();
+
+        // Calculate and print the area of the square
+        square.calculateArea();
+
+        scanner.close();
+    }
+}
+// write your code here
+
