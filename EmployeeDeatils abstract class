@@ -1,0 +1,68 @@
+
+
+import java.util.Scanner;
+abstract class EmployeeDetails {
+	
+	private String name;
+    private int emp_id;
+
+    // Parameterized constructor to initialize name and emp_id
+    public EmployeeDetails(String name, int emp_id) {
+        this.name = name;
+        this.emp_id = emp_id;
+    }
+
+    // Method to display common employee details
+    public void commonEmpDetails() {
+        System.out.println("Name = " + name);
+        System.out.println("emp_ID = " + emp_id);
+    }
+
+    // Abstract method to be implemented by subclasses
+    public abstract void confidentialDetails();
+
+}
+class HR extends EmployeeDetails {
+	
+	// write your code here
+	 private int salary;
+    private String performance;
+
+    // Parameterized constructor to initialize all fields
+    public HR(String name, int emp_id, int salary, String performance) {
+        super(name, emp_id);  // Initialize parent class (EmployeeDetails)
+        this.salary = salary;
+        this.performance = performance;
+    }
+
+    // Implementing the abstract method to display confidential details
+    @Override
+    public void confidentialDetails() {
+        System.out.println("salary = " + salary);
+        System.out.println("performance = " + performance);
+	}
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for the Employee Details
+        String name = scanner.nextLine(); // Read name
+        int emp_id = scanner.nextInt();   // Read employee ID
+        int salary = scanner.nextInt();   // Read salary
+        scanner.nextLine();               // Consume the newline left by nextInt()
+        String performance = scanner.nextLine(); // Read performance
+
+        // Create HR object and display details
+        HR employee = new HR(name, emp_id, salary, performance);
+        
+        // Display common employee details
+        employee.commonEmpDetails();
+
+        // Display confidential details
+        employee.confidentialDetails();
+
+        scanner.close();
+}
+}
+
+    
+
